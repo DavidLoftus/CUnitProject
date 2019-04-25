@@ -1,6 +1,10 @@
 #include <CUnit/CUnit.h>
 #include <CUnit/Basic.h>
 
+#include <stdlib.h>
+// Undefine max because msvc creates a non-standard macro
+#undef max
+
 #include "avg_and_max.h"
 
 void avg_test1(void)
@@ -17,6 +21,17 @@ void avg_test_empty_array(void)
     CU_ASSERT_DOUBLE_EQUAL(average(arr, 0), 0.0, 0.01);
 }
 
+void avg_test_large_array(void)
+{
+    double* arr = malloc(1000 * sizeof(double));
+    for(int i = 0; i < 1000; ++arr)
+    {
+        arr[i] = i+1;
+    }
+    CU_ASSERT_DOUBLE_EQUAL(average(arr, 1000), 1001/2.0, 0.01);
+    free(arr);
+}
+
 int main(void)
 {
     CU_initialize_registry();
@@ -26,6 +41,7 @@ int main(void)
 
     CU_ADD_TEST(avg_suite, avg_test1);
     CU_ADD_TEST(avg_suite, avg_test_empty_array);
+    CU_ADD_TEST(avg_suite, avg_test_large_array);
 
     CU_basic_set_mode(CU_BRM_VERBOSE); 
 
