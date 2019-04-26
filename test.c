@@ -17,7 +17,7 @@ void avg_test(void)
 
 void avg_test_empty_array(void)
 {
-    CU_ASSERT_DOUBLE_EQUAL(average(NULL, 0), 0.0, 0.0001);
+    CU_ASSERT_EQUAL(average(NULL, 0), 0.0);
 }
 
 void avg_test_large_array(void)
@@ -28,7 +28,7 @@ void avg_test_large_array(void)
     {
         arr[i] = i+1;
     }
-    CU_ASSERT_DOUBLE_EQUAL(average(arr, 1000), 1001/2.0, 0.0001);
+    CU_ASSERT_DOUBLE_EQUAL(average(arr, 1000), 500.5, 0.0001);
     free(arr);
 }
 
