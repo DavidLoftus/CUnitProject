@@ -32,6 +32,17 @@ void avg_test_large_array(void)
     free(arr);
 }
 
+void max_test(void)
+{
+    double array[] = {4.0, -5.24, 9.252};
+    CU_ASSERT_EQUAL(max(array, 3), 9.252);
+}
+
+void max_test_empty(void)
+{
+    CU_ASSERT_EQUAL(max(NULL, 0), -INFINITY);
+}
+
 int main(void)
 {
     CU_initialize_registry();
@@ -43,7 +54,10 @@ int main(void)
     CU_ADD_TEST(avg_suite, avg_test_empty_array);
     CU_ADD_TEST(avg_suite, avg_test_large_array);
 
-    CU_basic_set_mode(CU_BRM_VERBOSE); 
+    CU_ADD_TEST(max_suite, max_test);
+    CU_ADD_TEST(max_suite, max_test_empty);
+
+    CU_basic_set_mode(CU_BRM_VERBOSE);
 
     CU_basic_run_tests();
 
