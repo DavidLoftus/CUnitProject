@@ -43,8 +43,18 @@ void avg_test_large_array(void)
 
 void avg_test_single_value(void)
 {
-    double array[] = {3.14159};
-    CU_ASSERT_EQUAL(average(array, 1), 3.14159);
+    double array[1];
+
+    array[0] = 3.14159;
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 1), 3.14159, 0.0001);
+
+
+    array[0] = -2.2252;
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 1), -2.2252, 0.0001);
+
+
+    array[0] = 100.202;
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 1), 100.202, 0.0001);
 }
 
 void avg_test_same_value(void)
@@ -106,8 +116,18 @@ void max_test_large_array(void)
 
 void max_test_single_value(void)
 {
-    double array[] = {3.14159};
+    double array[1];
+
+    array[0] = 3.14159;
     CU_ASSERT_EQUAL(max(array, 1), 3.14159);
+
+
+    array[0] = -2.2252;
+    CU_ASSERT_EQUAL(max(array, 1), -2.2252);
+
+
+    array[0] = 100.202;
+    CU_ASSERT_EQUAL(max(array, 1), 100.202);
 }
 
 void max_test_same_value(void)
