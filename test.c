@@ -21,7 +21,7 @@ void avg_test_basic(void)
 
 void avg_test_empty_array(void)
 {
-    CU_ASSERT_EQUAL(average(NULL, 0), 0.0);
+    CU_ASSERT(isnan(average(NULL, 0)));
 }
 
 void avg_test_large_array(void)
