@@ -138,9 +138,9 @@ void max_test_basic(void)
     CU_ASSERT_EQUAL(max(array, 3), 9.252);
 
     double array2[] = {0.325, 0.111, 1.252, -2.997, 0.0};
-    CU_ASSERT_EQUAL(average(array2, 5), 1.252);
-    CU_ASSERT_EQUAL(average(array2, 4), 1.252);
-    CU_ASSERT_EQUAL(average(array2, 2),  0.325);
+    CU_ASSERT_EQUAL(max(array2, 5), 1.252);
+    CU_ASSERT_EQUAL(max(array2, 4), 1.252);
+    CU_ASSERT_EQUAL(max(array2, 2),  0.325);
 }
 
 /**
