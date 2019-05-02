@@ -7,6 +7,10 @@
 
 #include "avg_and_max.h"
 
+/**
+ * Tests for average function.
+ */
+
 void avg_test(void)
 {
     double arr[] = {1.0, 0.0, -1.0};
@@ -38,6 +42,9 @@ void avg_test_single_value(void)
     CU_ASSERT_EQUAL(average(array, 1), 3.14159);
 }
 
+/**
+ * Tests for max function.
+ */
 
 void max_test(void)
 {
