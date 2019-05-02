@@ -17,6 +17,11 @@ void avg_test_basic(void)
     CU_ASSERT_DOUBLE_EQUAL(average(arr, 3), 0.0, 0.0001);
     CU_ASSERT_DOUBLE_EQUAL(average(arr, 2), 0.5, 0.0001);
     CU_ASSERT_DOUBLE_EQUAL(average(arr, 1), 1.0, 0.0001);
+
+    double arr2[] = {0.325, 0.111, 1.252, -2.997, 0.0};
+    CU_ASSERT_DOUBLE_EQUAL(average(arr2, 5), -0.2618, 0.0001);
+    CU_ASSERT_DOUBLE_EQUAL(average(arr2, 4), -0.3272, 0.0001);
+    CU_ASSERT_DOUBLE_EQUAL(average(arr2, 3),  0.5627, 0.0001);
 }
 
 void avg_test_empty_array(void)
@@ -50,6 +55,11 @@ void max_test_basic(void)
 {
     double array[] = {4.0, -5.24, 9.252};
     CU_ASSERT_EQUAL(max(array, 3), 9.252);
+
+    double array2[] = {0.325, 0.111, 1.252, -2.997, 0.0};
+    CU_ASSERT_EQUAL(average(array2, 5), 1.252);
+    CU_ASSERT_EQUAL(average(array2, 4), 1.252);
+    CU_ASSERT_EQUAL(average(array2, 2),  0.325);
 }
 
 void max_test_empty_array(void)
