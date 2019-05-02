@@ -11,7 +11,7 @@
  * Tests for average function.
  */
 
-void avg_test(void)
+void avg_test_basic(void)
 {
     double arr[] = {1.0, 0.0, -1.0};
     CU_ASSERT_DOUBLE_EQUAL(average(arr, 3), 0.0, 0.0001);
@@ -46,7 +46,7 @@ void avg_test_single_value(void)
  * Tests for max function.
  */
 
-void max_test(void)
+void max_test_basic(void)
 {
     double array[] = {4.0, -5.24, 9.252};
     CU_ASSERT_EQUAL(max(array, 3), 9.252);
@@ -82,12 +82,12 @@ int main(void)
     CU_pSuite avg_suite = CU_add_suite("avg_suite", NULL, NULL);
     CU_pSuite max_suite = CU_add_suite("max_suite", NULL, NULL);
 
-    CU_ADD_TEST(avg_suite, avg_test);
+    CU_ADD_TEST(avg_suite, avg_test_basic);
     CU_ADD_TEST(avg_suite, avg_test_empty_array);
     CU_ADD_TEST(avg_suite, avg_test_large_array);
     CU_ADD_TEST(avg_suite, avg_test_single_value);
 
-    CU_ADD_TEST(max_suite, max_test);
+    CU_ADD_TEST(max_suite, max_test_basic);
     CU_ADD_TEST(max_suite, max_test_empty_array);
     CU_ADD_TEST(max_suite, max_test_large_array);
     CU_ADD_TEST(max_suite, max_test_single_value);
