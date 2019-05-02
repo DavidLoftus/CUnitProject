@@ -47,6 +47,31 @@ void avg_test_single_value(void)
     CU_ASSERT_EQUAL(average(array, 1), 3.14159);
 }
 
+void avg_test_same_value(void)
+{
+    double array[16];
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = 3.14159;
+    }
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 16), 3.14159, 0.0001);
+
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = -100.010;
+    }
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 16), -100.010, 0.0001);
+
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = 0.0;
+    }
+    CU_ASSERT_DOUBLE_EQUAL(average(array, 16), 0.0, 0.0001);
+}
+
 /**
  * Tests for max function.
  */
@@ -85,6 +110,32 @@ void max_test_single_value(void)
     CU_ASSERT_EQUAL(max(array, 1), 3.14159);
 }
 
+void max_test_same_value(void)
+{
+    double array[16];
+
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = 3.14159;
+    }
+    CU_ASSERT_EQUAL(max(array, 16), 3.14159);
+
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = -100.010;
+    }
+    CU_ASSERT_EQUAL(max(array, 16), -100.010);
+
+
+    for(int j = 0; j < 16; ++j)
+    {
+        array[j] = 0.0;
+    }
+    CU_ASSERT_EQUAL(max(array, 16), 0.0);
+}
+
 int main(void)
 {
     CU_initialize_registry();
@@ -96,11 +147,13 @@ int main(void)
     CU_ADD_TEST(avg_suite, avg_test_empty_array);
     CU_ADD_TEST(avg_suite, avg_test_large_array);
     CU_ADD_TEST(avg_suite, avg_test_single_value);
+    CU_ADD_TEST(avg_suite, avg_test_same_value);
 
     CU_ADD_TEST(max_suite, max_test_basic);
     CU_ADD_TEST(max_suite, max_test_empty_array);
     CU_ADD_TEST(max_suite, max_test_large_array);
     CU_ADD_TEST(max_suite, max_test_single_value);
+    CU_ADD_TEST(max_suite, max_test_same_value);
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
 
